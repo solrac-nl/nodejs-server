@@ -35,6 +35,19 @@ const requestListener = function (req, res) {
                     return;
                 });
             break;
+        case '/style.css':  
+            fs.readFile(__dirname + path)
+                .then(contents => {
+                    res.setHeader("Content-Type", "text/html");
+                    res.writeHead(200);
+                    res.end(contents);
+                })
+                .catch(err => {
+                    res.writeHead(500);
+                    res.end(err);
+                    return;
+                });
+            break;
         default:  
             res.writeHead(404);  
             res.write("bestand niet gevonden - 404");  
