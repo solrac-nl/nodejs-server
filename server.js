@@ -38,7 +38,7 @@ const requestListener = function (req, res) {
         case '/style.css':  
             fs.readFile(__dirname + path)
                 .then(contents => {
-                    res.setHeader("Content-Type", "text/html");
+                    res.setHeader("Content-Type", "text/css");
                     res.writeHead(200);
                     res.end(contents);
                 })
